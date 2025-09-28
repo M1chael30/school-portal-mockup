@@ -9,62 +9,87 @@ import {
  TableRow,
 } from "@/components/ui/table";
 
-const columnHead = ["Time", "Day", "Subject", "Room"];
+const columnHead = [
+ "Time",
+ "Monday",
+ "Tuesday",
+ "Wednesday",
+ "Thursday",
+ "Friday",
+];
 
 const schedule = [
  {
   time: "7:30 - 8:30 AM",
-  day: "Wednesday",
-  subject: "Science",
-  room: "Room 103",
+  monday: { subject: "", room: "" },
+  tuesday: { subject: "", room: "" },
+  wednesday: { subject: "Wednesday", room: "Room 103" },
+  thursday: { subject: "", room: "" },
+  friday: { subject: "", room: "" },
  },
  {
   time: "7:30 - 8:30 AM",
-  day: "Thursday",
-  subject: "Filipino",
-  room: "Room 106",
+  monday: { subject: "", room: "" },
+  tuesday: { subject: "", room: "" },
+  wednesday: { subject: "", room: "" },
+  thursday: { subject: "Filipino", room: "Room 106" },
+  friday: { subject: "", room: "" },
  },
  {
   time: "8:30 - 9:30 AM",
-  day: "Tuesday",
-  subject: "Science",
-  room: "Room 103",
+  monday: { subject: "", room: "" },
+  tuesday: { subject: "Science", room: "Room 103" },
+  wednesday: { subject: "", room: "" },
+  thursday: { subject: "", room: "" },
+  friday: { subject: "", room: "" },
  },
  {
   time: "8:30 - 9:30 AM",
-  day: "Wednesday",
-  subject: "Filipino",
-  room: "Room 106",
+  monday: { subject: "", room: "" },
+  tuesday: { subject: "", room: "" },
+  wednesday: { subject: "Filipino", room: "Room 106" },
+  thursday: { subject: "", room: "" },
+  friday: { subject: "", room: "" },
  },
  {
   time: "9:30 - 10:00 AM",
-  day: "M, T, W, Th, F",
-  subject: "Break Time (Recess)",
-  room: "",
+  monday: { subject: "Break Time (Recess)", room: "" },
+  tuesday: { subject: "Break Time (Recess)", room: "" },
+  wednesday: { subject: "Break Time (Recess)", room: "" },
+  thursday: { subject: "Break Time (Recess)", room: "" },
+  friday: { subject: "Break Time (Recess)", room: "" },
  },
  {
   time: "10:00 - 11:00 AM",
-  day: "Monday",
-  subject: "Science",
-  room: "Room 103",
+  monday: { subject: "Science", room: "Room 103" },
+  tuesday: { subject: "", room: "" },
+  wednesday: { subject: "", room: "" },
+  thursday: { subject: "", room: "" },
+  friday: { subject: "", room: "" },
  },
  {
   time: "11:00 - 12:00 NN",
-  day: "Friday",
-  subject: "Filipino",
-  room: "Room 106",
+  monday: { subject: "", room: "" },
+  tuesday: { subject: "", room: "" },
+  wednesday: { subject: "", room: "" },
+  thursday: { subject: "", room: "" },
+  friday: { subject: "Filipino", room: "Room 106" },
  },
  {
   time: "12:00 - 1:00 PM",
-  day: "M, T, W, Th, F",
-  subject: "Lunch",
-  room: "",
+  monday: { subject: "Lunch", room: "" },
+  tuesday: { subject: "Lunch", room: "" },
+  wednesday: { subject: "Lunch", room: "" },
+  thursday: { subject: "Lunch", room: "" },
+  friday: { subject: "Lunch", room: "" },
  },
  {
   time: "1:00 - 2:00 PM",
-  day: "Thursday",
-  subject: "Science",
-  room: "Room 103",
+  monday: { subject: "", room: "" },
+  tuesday: { subject: "", room: "" },
+  wednesday: { subject: "", room: "" },
+  thursday: { subject: "Science", room: "Room 103" },
+  friday: { subject: "", room: "" },
  },
 ];
 
@@ -87,11 +112,38 @@ export default function ScheduleIndex() {
      <TableBody>
       {schedule.length ? (
        schedule.map((sched, index) => (
-        <TableRow key={index}>
+        <TableRow key={index} className={"h-24"}>
          <TableCell>{sched.time}</TableCell>
-         <TableCell>{sched.day}</TableCell>
-         <TableCell>{sched.subject}</TableCell>
-         <TableCell>{sched.room}</TableCell>
+         <TableCell>
+          <div className="flex flex-col">
+           <span>{sched.monday.subject}</span>
+           <span>{sched.monday.room}</span>
+          </div>
+         </TableCell>
+         <TableCell>
+          <div className="flex flex-col">
+           <span>{sched.tuesday.subject}</span>
+           <span>{sched.tuesday.room}</span>
+          </div>
+         </TableCell>
+         <TableCell>
+          <div className="flex flex-col">
+           <span>{sched.wednesday.subject}</span>
+           <span>{sched.wednesday.room}</span>
+          </div>
+         </TableCell>
+         <TableCell>
+          <div className="flex flex-col">
+           <span>{sched.thursday.subject}</span>
+           <span>{sched.thursday.room}</span>
+          </div>
+         </TableCell>
+         <TableCell>
+          <div className="flex flex-col">
+           <span>{sched.friday.subject}</span>
+           <span>{sched.friday.room}</span>
+          </div>
+         </TableCell>
         </TableRow>
        ))
       ) : (

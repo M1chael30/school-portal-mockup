@@ -97,7 +97,7 @@ export default function ScheduleIndex() {
      <TableBody>
       {schedules.length ? (
        schedules.map((sched, index) => (
-        <TableRow key={index}>
+        <TableRow key={index} className={"h-24"}>
          <TableCell>{sched.time}</TableCell>
          <TableCell>
           <div className="flex flex-col">
