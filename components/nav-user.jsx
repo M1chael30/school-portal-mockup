@@ -55,7 +55,7 @@ export function NavUser({ user }) {
       <DropdownMenuItem>
        <Link href={user.profileLink} className="flex items-center gap-2 w-full">
         <User2 />
-        Profile
+        Personal Information
        </Link>
       </DropdownMenuItem>
       <DropdownMenuItem>

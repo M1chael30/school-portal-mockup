@@ -209,13 +209,13 @@ const studentGrades = [
 const schoolYear = ["2022-2023", "2023-2024", "2024-2025", "2025-2026"];
 
 const columnHead = [
- "Subject",
+ "Subject Name",
+ "Subject Teacher",
  "Quarter 1",
  "Quarter 2",
  "Quarter 3",
  "Quarter 4",
  "Final Average",
- "Teacher",
  "Remarks",
 ];
 
@@ -236,8 +236,8 @@ export default function ReportCardIndex() {
     <div className="space-y-5">
      <Title className="text-start">Student Report Card</Title>
      <div className="">
-      <SubTitle>Student Name: {studentNavmenu.user.name}</SubTitle>
       <SubTitle>Student LRN: {studentNavmenu.user.studentId}</SubTitle>
+      <SubTitle>Student Name: {studentNavmenu.user.name}</SubTitle>
       <SubTitle>
        Grade and Section:{" "}
        {gradeSectionAndAdviser ? gradeSectionAndAdviser.gradeAndSection : "N/A"}
@@ -259,9 +259,17 @@ export default function ReportCardIndex() {
      </div>
     </div>
    </div>
-   <div className="overflow-hidden rounded-md border">
-    <ReportCardTable column={columnHead} data={filteredStudent} />
-   </div>
+   {value ? (
+    <div className="overflow-hidden rounded-md border">
+     <ReportCardTable column={columnHead} data={filteredStudent} />
+    </div>
+   ) : (
+    <div className="overflow-hidden rounded-md border h-24 flex items-center justify-center">
+     <Title className={"text-base"}>
+      Please provide a school year to show grades.
+     </Title>
+    </div>
+   )}
   </section>
  );
 }

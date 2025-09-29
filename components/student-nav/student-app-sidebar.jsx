@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sidebar";
 import { studentNavmenu } from "@/lib/data";
 import { StudentNavOne } from "./student-nav-one";
+import StudentNavTwo from "./student-nav-two";
 import NavHeader from "../nav-header";
 
 export function StudentAppSidebar({ ...props }) {
@@ -19,6 +20,7 @@ export function StudentAppSidebar({ ...props }) {
     <NavHeader />
    </SidebarHeader>
    <SidebarContent>
+    <StudentNavTwo items={studentNavmenu.navItem2} />
     <StudentNavOne items={studentNavmenu.navItem1} />
    </SidebarContent>
    <SidebarFooter>

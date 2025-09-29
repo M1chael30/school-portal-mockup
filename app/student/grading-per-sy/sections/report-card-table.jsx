@@ -25,12 +25,12 @@ export default function ReportCardTable({ column, data }) {
       item.studentGrade.map((item, index) => (
        <TableRow key={index}>
         <TableCell>{item.subject}</TableCell>
+        <TableCell>{item.teacher}</TableCell>
         {item.grades &&
          item.grades.map((grade, index) => (
           <TableCell key={index}>{grade}</TableCell>
          ))}
         <TableCell>{item.finalAverage}</TableCell>
-        <TableCell>{item.teacher}</TableCell>
         <TableCell
          className={cn(
           "font-bold",
