@@ -58,7 +58,7 @@ export default function ClearanceTable({ columnHead, data }) {
     </div>
    ) : (
     <div className="overflow-hidden rounded-md border h-24 flex items-center justify-center">
-     <Title className={"text-lg"}>Nothing to clear.</Title>
+     <Title className={"text-lg"}>Nothing Pending For Clearance.</Title>
     </div>
    )}
   </>

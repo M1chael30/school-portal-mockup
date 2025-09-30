@@ -22,6 +22,7 @@ export function StudentAppSidebar({ ...props }) {
    <SidebarContent>
     <StudentNavTwo items={studentNavmenu.navItem2} />
     <StudentNavOne items={studentNavmenu.navItem1} />
+    <StudentNavOne items={studentNavmenu.navItem3} />
    </SidebarContent>
    <SidebarFooter>
     <NavUser user={studentNavmenu.user} />

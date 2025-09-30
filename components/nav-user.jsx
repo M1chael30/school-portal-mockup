@@ -53,12 +53,6 @@ export function NavUser({ user }) {
       </DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuItem>
-       <Link href={user.profileLink} className="flex items-center gap-2 w-full">
-        <User2 />
-        Personal Information
-       </Link>
-      </DropdownMenuItem>
-      <DropdownMenuItem>
        <LogOut />
        Log out
       </DropdownMenuItem>
