@@ -3,7 +3,7 @@ import React from "react";
 
 export default function SubTitle({ className, children, ...props }) {
  return (
-  <p {...props} className={cn("text-sm text-muted-foreground", className)}>
+  <p {...props} className={cn("text-sm text-muted-foreground print:text-sm print:text-muted-foreground", className)}>
    {children}
   </p>
  );
