@@ -1,15 +1,11 @@
+"use client";
+
+import { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 import SubTitle from "@/components/sub-title";
 import Title from "@/components/title";
-import { Badge } from "@/components/ui/badge";
-import {
- Table,
- TableBody,
- TableCell,
- TableHead,
- TableHeader,
- TableRow,
-} from "@/components/ui/table";
-import { CircleCheck } from "lucide-react";
+import SubjectsEnrolledTable from "./sections/subjects-enrolled-table";
+import PrintBtn from "@/components/print-btn";
 
 const subjectsEnrolled = [
  {
@@ -53,49 +49,22 @@ const subjectsEnrolled = [
 const columnHead = ["Subject Code", "Subject Title", "Status"];
 
 export default function SubjectIndex() {
+ const contentRef = useRef(null);
+ const reactToPrintFn = useReactToPrint({
+  contentRef,
+ });
+
  return (
-  <section className="space-y-6">
+  <section className="space-y-6 print:space-y-6" ref={contentRef}>
+   <PrintBtn print={reactToPrintFn} />
    <div>
-    <Title className="text-start">
+    <Title className="text-start print:text-start">
      Enrolled Subjects For Grade 10 / SY 2025-2026
     </Title>
     <SubTitle>Date officially enrolled: 06/27/2025 </SubTitle>
-    <SubTitle></SubTitle>
    </div>
-   <div className="overflow-hidden rounded-md border">
-    <Table>
-     <TableHeader>
-      <TableRow>
-       {columnHead.length &&
-        columnHead.map((colHead, index) => (
-         <TableHead key={index}>{colHead}</TableHead>
-        ))}
-      </TableRow>
-     </TableHeader>
-     <TableBody>
-      {subjectsEnrolled.length ? (
-       subjectsEnrolled.map((item, index) => (
-        <TableRow key={index}>
-         <TableCell>{item.subjectCode}</TableCell>
-         <TableCell>{item.subject}</TableCell>
-         <TableCell>
-          <Badge
-           variant={"secondary"}
-           className="bg-green-500 text-white dark:bg-green-600"
-          >
-           <CircleCheck />
-           {item.status}
-          </Badge>
-         </TableCell>
-        </TableRow>
-       ))
-      ) : (
-       <TableRow colSpan={columnHead.length}>
-        <TableCell className="text-center">No subjects enrolled.</TableCell>
-       </TableRow>
-      )}
-     </TableBody>
-    </Table>
+   <div className="overflow-hidden rounded-md border print:overflow-hidden print:rounded-md print:border">
+    <SubjectsEnrolledTable data={subjectsEnrolled} columnHead={columnHead} />
    </div>
   </section>
  );

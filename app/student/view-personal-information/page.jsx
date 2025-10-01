@@ -10,6 +10,7 @@ import PhysicalDescription from "./sections/physical-description";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import FamilyData from "./sections/family-data";
+import PrintBtn from "@/components/print-btn";
 
 export default function ProfileIndex() {
  const contentRef = useRef(null);
@@ -20,14 +21,9 @@ export default function ProfileIndex() {
  return (
   <section
    ref={contentRef}
-   className="space-y-10 print:space-y-10 print:m-[5mm]"
+   className="space-y-10 print:space-y-10"
   >
-   <div className="flex justify-end">
-    <Button size="sm" onClick={reactToPrintFn} className="print:hidden">
-     <Printer />
-     Print
-    </Button>
-   </div>
+   <PrintBtn print={reactToPrintFn} />
    <Title className="print:text-center">
     General Student Personal Information Sheet (GSPIS)
    </Title>

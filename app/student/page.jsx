@@ -3,7 +3,6 @@ import { studentNavmenu } from "@/lib/data";
 import {
  Table,
  TableBody,
- TableCaption,
  TableCell,
  TableHead,
  TableHeader,
