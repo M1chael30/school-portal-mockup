@@ -1,9 +1,10 @@
+import { cn } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-export default function TextInput({ labelTitle, ...props }) {
+export default function TextInput({ labelTitle, className, ...props }) {
  return (
-  <div className="space-y-4">
+  <div className={cn("space-y-4", className)}>
    {labelTitle && (
     <Label {...props} htmlFor={labelTitle}>
      {labelTitle}

@@ -1,15 +1,19 @@
-import React from "react";
+import Title from "@/components/title";
+import { adminNavmenu } from "@/lib/data";
 
-export default function AdminIndex() {
+const { name } = adminNavmenu.user;
+
+export default function TeacherIndex() {
  return (
-  <section>
-   <h1 className="text-lg text-center">Admin Home Page</h1>
-   <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-    <div className="bg-muted/50 aspect-video rounded-xl" />
-    <div className="bg-muted/50 aspect-video rounded-xl" />
-    <div className="bg-muted/50 aspect-video rounded-xl" />
-   </div>
-   <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min" />
+  <section className="space-y-5">
+   <Title className="text-2xl">Welcome {name} to your Admin page!</Title>
+
+   <p className="text-muted-foreground text-center">
+    For any problem in the system, contact System Administrator for details.
+    Click the links under MENU to select operation. It is recommended to logout
+    by clicking the logout button everytime you leave your PC. If you do not
+    agree with the conditions or you are not {name} please logout.
+   </p>
   </section>
  );
 }

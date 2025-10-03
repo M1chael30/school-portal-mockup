@@ -20,8 +20,9 @@ export function TeacherAppSidebar({ ...props }) {
     <NavHeader />
    </SidebarHeader>
    <SidebarContent>
-    <TeacherNavTwo items={teacherNavmenu.navItem2} />
     <TeacherNavOne items={teacherNavmenu.navItem1} />
+    <TeacherNavOne items={teacherNavmenu.navItem4} />
+    <TeacherNavTwo items={teacherNavmenu.navItem2} />
     <TeacherNavTwo items={teacherNavmenu.navItem3} />
    </SidebarContent>
    <SidebarFooter>

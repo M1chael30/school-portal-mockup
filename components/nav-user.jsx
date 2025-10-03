@@ -16,10 +16,12 @@ import {
  SidebarMenuItem,
  useSidebar,
 } from "@/components/ui/sidebar";
-import Link from "next/link";
+import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 export function NavUser({ user }) {
  const { isMobile } = useSidebar();
+ const router = useRouter();
 
  return (
   <SidebarMenu>
@@ -53,8 +55,14 @@ export function NavUser({ user }) {
       </DropdownMenuLabel>
       <DropdownMenuSeparator />
       <DropdownMenuItem>
-       <LogOut />
-       Log out
+       <Button
+        onClick={() => router.push("/login")}
+        className="w-full justify-start h-5"
+        variant="ghost"
+       >
+        <LogOut />
+        Log out
+       </Button>
       </DropdownMenuItem>
      </DropdownMenuContent>
     </DropdownMenu>

@@ -8,29 +8,30 @@ import {
  TableHeader,
  TableRow,
 } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
 import Title from "@/components/title";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
+import { Input } from "@/components/ui/input";
+import { SelectInput } from "@/components/select-input";
+import SubTitle from "@/components/sub-title";
 
 export default function StudentGradesTable({
  studentData,
  filters,
  columnHead,
+ remarks,
 }) {
  return (
   <>
    <section className="overflow-hidden rounded-md border">
-    {filters.gradeAndSection && filters.subject ? (
+    {filters.quarter && filters.subject ? (
      <Table>
       <TableHeader>
        <TableRow>
-        {columnHead.length &&
+        {columnHead &&
          columnHead.map((column) => (
           <TableHead
            key={column}
            className={cn(
-            column.includes("Action") && "text-center",
             column.includes("Student LRN") && "font-bold tracking-wider"
            )}
           >
@@ -40,19 +41,24 @@ export default function StudentGradesTable({
        </TableRow>
       </TableHeader>
       <TableBody>
-       {filters.searchTerm && studentData.length ? (
+       {studentData ? (
         studentData.map((student, index) => (
          <TableRow key={index}>
           <TableCell className={"font-bold tracking-wider"}>
            {student.student_lrn}
           </TableCell>
           <TableCell>{student.student_name}</TableCell>
-          <TableCell className="flex justify-center">
-           <Button variant={"outline"} size={"sm"} asChild>
-            <Link href={`/teacher/student-grades/${student.student_lrn}`}>
-             View
-            </Link>
-           </Button>
+          <TableCell>{student.grade_level.split(" ")[1]}</TableCell>
+          <TableCell>{student.section.split(" ")[3]}</TableCell>
+          <TableCell>
+           <Input defaultValue={student.grade} placeholder="Grade" />
+          </TableCell>
+          <TableCell>
+           <SelectInput
+            selectValue="Select a Remarks"
+            selectLabel="Remarks"
+            data={remarks}
+           />
           </TableCell>
          </TableRow>
         ))
@@ -67,12 +73,20 @@ export default function StudentGradesTable({
      </Table>
     ) : (
      <div className="h-30 flex items-center justify-center">
-      <Title className={"text-md"}>
-       Filter first and search name to show data.
+      <Title className="text-md">
+       Provide subject and quarter to show data.
       </Title>
      </div>
     )}
    </section>
+   {filters.quarter && filters.subject && (
+    <div className="space-y-1">
+     <Title className="text-start text-lg tracking-wider">Note:</Title>
+     <SubTitle className="text-base">
+      The deadline for submission of grades is 11/01/2025.
+     </SubTitle>
+    </div>
+   )}
   </>
  );
 }

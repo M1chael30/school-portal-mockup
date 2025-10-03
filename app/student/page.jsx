@@ -10,9 +10,9 @@ import {
 } from "@/components/ui/table";
 import React from "react";
 
-export default function StudentIndex() {
- const { name, studentId } = studentNavmenu.user;
+const { name, studentId } = studentNavmenu.user;
 
+export default function StudentIndex() {
  return (
   <section className="space-y-5">
    <Title className="text-2xl">Welcome {name} to your student page!</Title>

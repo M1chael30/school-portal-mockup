@@ -12,6 +12,7 @@ import { adminNavmenu } from "@/lib/data";
 import { AdminNavOne } from "./admin-nav-one";
 import { AdminNavTwo } from "./admin-nav-two";
 import NavHeader from "../nav-header";
+import { AdminNavThree } from "./admin-nav-three";
 
 export function AdminAppSidebar({ ...props }) {
  return (
@@ -20,8 +21,9 @@ export function AdminAppSidebar({ ...props }) {
     <NavHeader />
    </SidebarHeader>
    <SidebarContent>
-    <AdminNavOne items={adminNavmenu.navItem1} />
-    <AdminNavTwo items={adminNavmenu.navItem2} />
+    {/* <AdminNavOne items={adminNavmenu.navItem1} />
+    <AdminNavTwo items={adminNavmenu.navItem2} /> */}
+    <AdminNavThree items={adminNavmenu.navItem3} />
    </SidebarContent>
    <SidebarFooter>
     <NavUser user={adminNavmenu.user} />

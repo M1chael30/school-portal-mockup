@@ -23,7 +23,7 @@ const schedule = [
   time: "7:30 - 8:30 AM",
   monday: { subject: "", room: "" },
   tuesday: { subject: "", room: "" },
-  wednesday: { subject: "Wednesday", room: "Room 103" },
+  wednesday: { subject: "Science", room: "Room 103" },
   thursday: { subject: "", room: "" },
   friday: { subject: "", room: "" },
  },

@@ -2,7 +2,6 @@
 
 import Title from "@/components/title";
 import React from "react";
-import SubTitle from "@/components/sub-title";
 import StudentGradesTable from "./sections/student-grades-table";
 import StudentFilters from "./sections/student-filters";
 import { studentList } from "@/lib/data";
@@ -10,22 +9,22 @@ import { studentList } from "@/lib/data";
 const columnHead = [
  "Student LRN",
  "Student Name",
- // "Quarter 1",
- // "Quarter 2",
- // "Quarter 3",
- // "Quarter 4",
- // "Average",
- // "Remarks",
- "Action",
+ "Grade Level",
+ "Section",
+ "Grade",
+ "Remarks",
 ];
 
-const gradeAndSection = ["Grade 7 - Rizal", "Grade 10 - Luna"];
+const schoolYear = ["2022-2023", "2023-2024", "2024-2025", "2025-2026"];
+
+const remarks = ["Failed", "Passed"];
+
+const quarters = ["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"];
 
 export default function StudentGradesIndex() {
  const [filters, setFilters] = React.useState({
-  gradeAndSection: "",
+  quarter: "",
   subject: "",
-  searchTerm: "",
  });
 
  const updateFilter = (key, value) => {
@@ -33,27 +32,23 @@ export default function StudentGradesIndex() {
  };
 
  const filteredClasses = studentList.students.filter(
-  (cls) =>
-   cls.section === filters.gradeAndSection &&
-   cls.subject === filters.subject &&
-   cls.student_name.toLowerCase().includes(filters.searchTerm.toLowerCase())
+  (cls) => cls.subject === filters.subject && cls.quarter === filters.quarter
  );
 
  return (
   <section className="space-y-6">
    {/* Page Header */}
-   <div className="flex justify-between">
+   <div className="flex flex-col gap-3 items-center">
     {/* description */}
     <div>
-     <Title className="text-start">Student Grades</Title>
-     <SubTitle>Grade and Section: {filters.gradeAndSection || "N/A"}</SubTitle>
-     <SubTitle>Subject: {filters.subject || "N/A"}</SubTitle>
+     <Title>Grade Sheets</Title>
     </div>
 
     {/* Filters */}
     <StudentFilters
      subjects={studentList.subjects}
-     gradeAndSection={gradeAndSection}
+     quarters={quarters}
+     schoolYear={schoolYear}
      updateFilter={updateFilter}
     />
    </div>
@@ -63,6 +58,7 @@ export default function StudentGradesIndex() {
     studentData={filteredClasses}
     filters={filters}
     columnHead={columnHead}
+    remarks={remarks}
    />
   </section>
  );

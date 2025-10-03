@@ -14,7 +14,7 @@ export function SelectInput({ selectLabel, selectValue, data, ...props }) {
    <SelectTrigger className="w-[200px]">
     <SelectValue placeholder={selectValue} />
    </SelectTrigger>
-   <SelectContent>
+   <SelectContent >
     <SelectGroup>
      <SelectLabel>{selectLabel}</SelectLabel>
      {data &&

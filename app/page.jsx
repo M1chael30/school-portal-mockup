@@ -12,6 +12,11 @@ export default function IndexPage() {
     <SubTitle className="text-2xl">Links</SubTitle>
 
     <div className="flex items-center gap-3">
+     {/* login */}
+     <Button asChild>
+      <Link href="/login">Login Page</Link>
+     </Button>
+
      {/* admin */}
      <Button asChild>
       <Link href="/admin">Admin Page</Link>

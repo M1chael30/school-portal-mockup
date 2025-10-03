@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ChevronsUpDown } from "lucide-react";
 
 import {
  Collapsible,
@@ -19,9 +19,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export function AdminNavOne({ items }) {
- const path = usePathname();
-
+export function AdminNavThree({ items }) {
  return (
   <>
    <SidebarGroup>
@@ -44,13 +42,13 @@ export function AdminNavOne({ items }) {
         <CollapsibleContent>
          <SidebarMenuSub>
           {item.items?.map((subItem) => (
-           <SidebarMenuSubItem key={subItem.title}>
-            <SidebarMenuSubButton asChild isActive={subItem.url === path}>
-             <Link href={subItem.url}>
-              <span>{subItem.title}</span>
-             </Link>
-            </SidebarMenuSubButton>
-           </SidebarMenuSubItem>
+           <Collapsible
+            key={subItem.title}
+            defaultOpen={false}
+            className="group/collapsible"
+           >
+            <NestedItem item={subItem} />
+           </Collapsible>
           ))}
          </SidebarMenuSub>
         </CollapsibleContent>
@@ -60,5 +58,33 @@ export function AdminNavOne({ items }) {
     </SidebarMenu>
    </SidebarGroup>
   </>
+ );
+}
+
+function NestedItem({ item }) {
+ const path = usePathname();
+ return (
+  <SidebarMenuItem>
+   <CollapsibleTrigger asChild>
+    <SidebarMenuButton tooltip={item.title}>
+     {item.icon && <item.icon />}
+     <span>{item.title}</span>
+     <ChevronsUpDown className="ml-auto" />
+    </SidebarMenuButton>
+   </CollapsibleTrigger>
+   <CollapsibleContent>
+    <SidebarMenuSub>
+     {item.items?.map((subItem) => (
+      <SidebarMenuSubItem key={subItem.title}>
+       <SidebarMenuSubButton asChild isActive={subItem.url === path}>
+        <Link href={subItem.url}>
+         <span>{subItem.title}</span>
+        </Link>
+       </SidebarMenuSubButton>
+      </SidebarMenuSubItem>
+     ))}
+    </SidebarMenuSub>
+   </CollapsibleContent>
+  </SidebarMenuItem>
  );
 }
