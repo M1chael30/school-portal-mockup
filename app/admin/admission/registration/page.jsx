@@ -6,6 +6,8 @@ const studentStatus = ["New", "Old", "Tranferee"];
 
 const gradeLevel = [7, 8, 9, 10];
 
+const gender = ["Male", "Female"];
+
 export default function Registration() {
  return (
   <section className="space-y-5">
@@ -18,6 +20,7 @@ export default function Registration() {
    <StudentRegistrationForm
     studentStatus={studentStatus}
     gradeLevel={gradeLevel}
+    gender={gender}
    />
   </section>
  );
