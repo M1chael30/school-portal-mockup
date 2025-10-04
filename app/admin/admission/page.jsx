@@ -4,10 +4,10 @@ import { adminNavmenu } from "@/lib/data";
 
 const { name, employeeId } = adminNavmenu.user;
 
-export default function EnrollmentIndex() {
+export default function AdmissionIndex() {
  return (
   <section className="space-y-5">
-   <Title className="text-2xl">Welcome {name} to the Enrollment page!</Title>
+   <Title className="text-2xl">Welcome {name} to the Admission page!</Title>
 
    <SubTitle className="text-center text-base">
     For any problem in the system, contact System Administrator for details.

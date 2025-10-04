@@ -1,12 +1,14 @@
 import Title from "@/components/title";
-import { teacherNavmenu } from "@/lib/data";
+import { adminNavmenu } from "@/lib/data";
 
-const { name, employeeId } = teacherNavmenu.user;
+const { name, employeeId } = adminNavmenu.user;
 
-export default function TeacherIndex() {
+export default function RegistrarManagementIndex() {
  return (
   <section className="space-y-5">
-   <Title className="text-2xl">Welcome {name} to your Teacher page!</Title>
+   <Title className="text-2xl">
+    Welcome {name} to the Registrar Management page!
+   </Title>
 
    <p className="text-muted-foreground text-center">
     For any problem in the system, contact System Administrator for details.

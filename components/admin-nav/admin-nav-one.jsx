@@ -19,7 +19,7 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export function AdminNavOne({ items }) {
+export function AdminNavOne({ items = [] }) {
  const path = usePathname();
 
  return (

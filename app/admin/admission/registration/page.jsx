@@ -1,0 +1,24 @@
+import Title from "@/components/title";
+import React from "react";
+import StudentRegistrationForm from "./sections/student-registration-form";
+
+const studentStatus = ["New", "Old", "Tranferee"];
+
+const gradeLevel = [7, 8, 9, 10];
+
+export default function Registration() {
+ return (
+  <section className="space-y-5">
+   {/* title */}
+   <div>
+    <Title>Student Registration</Title>
+   </div>
+
+   {/* content */}
+   <StudentRegistrationForm
+    studentStatus={studentStatus}
+    gradeLevel={gradeLevel}
+   />
+  </section>
+ );
+}
