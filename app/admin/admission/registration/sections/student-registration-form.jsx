@@ -37,7 +37,7 @@ export default function StudentRegistrationForm({
    {/* under header */}
    <div className="grid auto-rows-min md:grid-cols-4 gap-5">
     {/* grade level */}
-    <div className="space-y-3 md:col-span-4">
+    {/* <div className="space-y-3 md:col-span-4">
      <Label className="text-sm">Grade Level</Label>
 
      <SelectInput
@@ -45,7 +45,7 @@ export default function StudentRegistrationForm({
       selectValue="Select a Grade Level"
       data={gradeLevel}
      />
-    </div>
+    </div> */}
 
     {/* school year */}
     <div className="md:col-span-2">

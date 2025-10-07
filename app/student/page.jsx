@@ -40,6 +40,11 @@ export default function StudentIndex() {
     by clicking the logout button everytime you leave your PC. If you do not
     agree with the conditions or you are not {studentId} please logout.
    </p>
+
+   <p className="text-muted-foreground text-center">
+    If you do not agree with the conditions or you are not{" "}
+    <span className="font-bold">{studentId}</span> please logout.
+   </p>
   </section>
  );
 }

@@ -13,8 +13,12 @@ export default function RegistrarManagementIndex() {
    <p className="text-muted-foreground text-center">
     For any problem in the system, contact System Administrator for details.
     Click the links under MENU to select operation. It is recommended to logout
-    by clicking the logout button everytime you leave your PC. If you do not
-    agree with the conditions or you are not {employeeId} please logout.
+    by clicking the logout button everytime you leave your PC.
+   </p>
+
+   <p className="text-muted-foreground text-center">
+    If you do not agree with the conditions or you are not{" "}
+    <span className="font-bold">{employeeId}</span> please logout.
    </p>
   </section>
  );

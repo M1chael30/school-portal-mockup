@@ -65,6 +65,28 @@ export function AdminSiteHeader() {
     </BreadcrumbList>
    </Breadcrumb>
   );
+ } else if (pathName.startsWith("/admin/registrar-management")) {
+  content = (
+   <Breadcrumb>
+    <BreadcrumbList>
+     <BreadcrumbItem>
+      <BreadcrumbLink asChild>
+       <Link href="/admin" className="text-base font-medium">
+        Admin
+       </Link>
+      </BreadcrumbLink>
+     </BreadcrumbItem>
+     <BreadcrumbSeparator>
+      <SlashIcon />
+     </BreadcrumbSeparator>
+     <BreadcrumbItem>
+      <BreadcrumbPage className="text-base font-medium">
+       Registrar Management
+      </BreadcrumbPage>
+     </BreadcrumbItem>
+    </BreadcrumbList>
+   </Breadcrumb>
+  );
  } else {
   content = <Title className="text-base font-medium">Admin DashBoard</Title>;
  }

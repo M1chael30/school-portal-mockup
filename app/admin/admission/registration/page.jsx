@@ -2,7 +2,7 @@ import Title from "@/components/title";
 import React from "react";
 import StudentRegistrationForm from "./sections/student-registration-form";
 
-const studentStatus = ["New", "Old", "Tranferee"];
+const studentStatus = ["New", "Old", "Transferee"];
 
 const gradeLevel = [7, 8, 9, 10];
 
