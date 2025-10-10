@@ -5,27 +5,22 @@ import PersonalDetails from "@/components/edit-student-info/personal-details";
 import ResidenceData from "@/components/edit-student-info/residence-data";
 import PhysicalDescription from "@/components/edit-student-info/physical-description";
 import FamilyData from "@/components/edit-student-info/family-data";
-import { studentNavmenu } from "@/lib/data";
 
-export default function EditPersonalInformation() {
+export default function EditStudentInfo({ student = {} }) {
  return (
   <section className="space-y-10">
    <Title className="text-center">
     Edit General Student Personal Information Sheet (GSPIS)
    </Title>
-   <GeneralInformation student={studentNavmenu.student_personal_info} />
+   <GeneralInformation student={student} />
    <hr />
-   <PersonalDetails student={studentNavmenu.student_personal_info} />
+   <PersonalDetails student={student} />
    <hr />
-   <ResidenceData
-    student={studentNavmenu.student_personal_info.learners_residence_data}
-   />
+   <ResidenceData student={student.learners_residence_data} />
    <hr />
-   <PhysicalDescription
-    student={studentNavmenu.student_personal_info.physical_description}
-   />
+   <PhysicalDescription student={student.physical_description} />
    <hr />
-   <FamilyData student={studentNavmenu.student_personal_info.family_data} />
+   <FamilyData student={student.family_data} />
    <Button>Save Changes</Button>
   </section>
  );

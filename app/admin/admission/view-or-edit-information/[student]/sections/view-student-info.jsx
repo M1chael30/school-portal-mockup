@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-import { studentNavmenu } from "@/lib/data";
 import Title from "@/components/title";
 import PrintBtn from "@/components/print-btn";
 import GeneralInformation from "@/components/view-student-info/general-information";
@@ -11,7 +10,7 @@ import ResidenceData from "@/components/view-student-info/residence-data";
 import PhysicalDescription from "@/components/view-student-info/physical-description";
 import FamilyData from "@/components/view-student-info/family-data";
 
-export default function ProfileIndex() {
+export default function ViewStudentInfo({ student = {} }) {
  const contentRef = useRef(null);
  const reactToPrintFn = useReactToPrint({
   contentRef,
@@ -23,19 +22,15 @@ export default function ProfileIndex() {
    <Title className="print:text-center">
     General Student Personal Information Sheet (GSPIS)
    </Title>
-   <GeneralInformation student={studentNavmenu.student_personal_info} />
+   <GeneralInformation student={student} />
    <hr />
-   <PersonalDetails student={studentNavmenu.student_personal_info} />
+   <PersonalDetails student={student} />
    <hr />
-   <ResidenceData
-    student={studentNavmenu.student_personal_info.learners_residence_data}
-   />
+   <ResidenceData student={student.learners_residence_data} />
    <hr />
-   <PhysicalDescription
-    student={studentNavmenu.student_personal_info.physical_description}
-   />
+   <PhysicalDescription student={student.physical_description} />
    <hr />
-   <FamilyData student={studentNavmenu.student_personal_info.family_data} />
+   <FamilyData student={student.family_data} />
   </section>
  );
 }
